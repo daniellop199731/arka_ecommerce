@@ -30,4 +30,8 @@ public class ResponseObject<T> {
         rObjDestination.setMessage(this.getMessage());
         return rObjDestination;
     }
+
+    public String getMessageAsString() {
+        return message != null ? message.toString() : null;
+    }
 }

@@ -1,6 +1,8 @@
 package com.bancolombia.arka_ecommerce.application.usecase;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
 import java.util.*;
@@ -72,7 +74,7 @@ class MetodoPagoClienteApplicationServiceTest {
         ResponseObject<MetodoPagoCliente> result = service.createMetodoPagoCliente(1, 2);
 
         assertFalse(result.isSuccessful());
-        assertTrue(result.getMessage().equals("No existe el Cliente con id " + 1));
+        assertEquals(result.getMessageAsString(), "No existe el Cliente con id " + 1);
     }
 
     @Test
@@ -83,7 +85,7 @@ class MetodoPagoClienteApplicationServiceTest {
         ResponseObject<MetodoPagoCliente> result = service.createMetodoPagoCliente(1, 2);
 
         assertFalse(result.isSuccessful());
-        assertTrue(result.getMessage().equals("No existe el Metodo de pago con id " + 2));
+        assertEquals("No existe el Metodo de pago con id " + 2, result.getMessageAsString());
     }
 
     @Test
@@ -95,7 +97,7 @@ class MetodoPagoClienteApplicationServiceTest {
         ResponseObject<MetodoPagoCliente> result = service.createMetodoPagoCliente(1, 2);
 
         assertFalse(result.isSuccessful());
-        assertTrue(result.getMessage().equals("Ya existe la asignacion"));
+        assertEquals("Ya existe la asignacion", result.getMessageAsString());
     }
 
     @Test
@@ -121,7 +123,7 @@ class MetodoPagoClienteApplicationServiceTest {
         ResponseObject<MetodoPagoCliente> result = service.manageMetodoPagoCliente(1, 2, 100);
 
         assertFalse(result.isSuccessful());
-        assertTrue(result.getMessage().equals("No existe el Metodo de pago con id " + 2));
+        assertEquals("No existe el Metodo de pago con id " + 2, result.getMessageAsString());
     }
 
     @Test
@@ -132,7 +134,7 @@ class MetodoPagoClienteApplicationServiceTest {
         ResponseObject<MetodoPagoCliente> result = service.manageMetodoPagoCliente(1, 2, 100);
 
         assertFalse(result.isSuccessful());
-        assertTrue(result.getMessage().equals("No existe el Cliente de pago con id " + 1));
+        assertEquals("No existe el Cliente de pago con id " + 1, result.getMessageAsString());
     }
 
     @Test
@@ -143,7 +145,7 @@ class MetodoPagoClienteApplicationServiceTest {
         ResponseObject<MetodoPagoCliente> result = service.manageMetodoPagoCliente(1, 2, 0);
 
         assertFalse(result.isSuccessful());
-        assertTrue(result.getMessage().equals("El valor a cargar debe ser mayor a cero"));
+        assertEquals("El valor a cargar debe ser mayor a cero", result.getMessageAsString());
     }
 
     @Test
