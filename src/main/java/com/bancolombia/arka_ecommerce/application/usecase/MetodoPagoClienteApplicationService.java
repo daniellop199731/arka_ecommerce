@@ -22,7 +22,7 @@ public class MetodoPagoClienteApplicationService implements MetodoPagoClienteUse
 
     private final MetodoPagoClienteRepositoryPort metodoPagoClienteRepositoryPort;
     private final MetodoPagoRepositoryPort metodoPagoRepositoryPort;
-    private final ClienteRepositoryPort ClienteRepositoryPort;
+    private final ClienteRepositoryPort clienteRepositoryPort;
 
     private static ResponseObject<MetodoPagoCliente> rObj;
 
@@ -37,7 +37,7 @@ public class MetodoPagoClienteApplicationService implements MetodoPagoClienteUse
     public ResponseObject<MetodoPagoCliente> createMetodoPagoCliente(int idCliente, int idMetodoPago) {
         rObj = new ResponseObject<>();
 
-        if(!ClienteRepositoryPort.existsById(idCliente)){
+        if(!clienteRepositoryPort.existsById(idCliente)){
             rObj.setAsNotSuccessful("No existe el Cliente con id " + idCliente);
             return rObj;
         }
@@ -79,8 +79,8 @@ public class MetodoPagoClienteApplicationService implements MetodoPagoClienteUse
             return rObj;
         }
 
-        if(!ClienteRepositoryPort.existsById(idCliente)){
-            rObj.setAsNotSuccessful("No existe el Metodo de pago con id " + idMetodoPago);
+        if(!clienteRepositoryPort.existsById(idCliente)){
+            rObj.setAsNotSuccessful("No existe el Cliente de pago con id " + idCliente);
             return rObj;
         }
 

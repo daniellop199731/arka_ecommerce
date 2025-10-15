@@ -16,7 +16,7 @@ public class CarritoCompraProducto {
     
     public CarritoCompraProducto(int idCarrito, int idProducto, int unidadesProducto){
         CarritoCompra carrito = new CarritoCompra();
-        carritoCompra.setIdCarritoCompra(idCarrito);
+        carrito.setIdCarritoCompra(idCarrito);
         Producto producto = new Producto();
         producto.setIdProducto(idProducto);
         this.carritoCompra = carrito;
