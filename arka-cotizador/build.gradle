@@ -21,5 +21,5 @@ jar {
 
 bootJar {
     enabled = true
-    archiveFileName = 'hello-world-service.jar'
+    archiveFileName = 'arka-cotizador.jar'
 }
