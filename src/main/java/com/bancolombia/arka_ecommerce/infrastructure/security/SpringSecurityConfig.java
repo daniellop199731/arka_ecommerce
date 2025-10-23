@@ -39,6 +39,7 @@ public class SpringSecurityConfig {
             .requestMatchers(HttpMethod.POST,"/users/register").permitAll()
             .requestMatchers(HttpMethod.POST,"/users").permitAll()
             .requestMatchers(HttpMethod.GET,"/test").permitAll()
+            .requestMatchers(HttpMethod.GET,"/productos/price/**").permitAll()
             //... espacio para mas ruras sin autenticacion si se requiere
             //Cualquier otra ruta requerira autenticacion
             .anyRequest().authenticated())
